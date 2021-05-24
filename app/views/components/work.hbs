@@ -3,7 +3,11 @@
   {{> title value="Experience"}}
 
   {{#each resume.work}}
+  {{#if breakBefore}}
+  <section class="item page-break">
+  {{else}}
   <section class="item">
+  {{/if}}
     {{> section-header-duration name=this.company }}
 
     <div>

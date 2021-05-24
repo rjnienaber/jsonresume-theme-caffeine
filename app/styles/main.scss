@@ -16,3 +16,8 @@
 @import 'components/info-tag';
 @import 'components/references';
 @import 'components/education';
+
+.page-break {
+  margin-top: 15px;
+  page-break-before: always;
+}
