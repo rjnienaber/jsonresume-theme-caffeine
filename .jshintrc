@@ -8,11 +8,10 @@
   "immed": true,
   "indent": 4,
   "latedef": true,
-  "node": true,
   "newcap": true,
   "noarg": true,
   "quotmark": "single",
   "undef": true,
   "unused": true,
-  "strict": true
+  "strict": false
 }

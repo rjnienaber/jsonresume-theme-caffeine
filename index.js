@@ -38,8 +38,38 @@ handlebars.registerHelper({
     return addressList.join('<br/>');
   },
 
+  isArray: function(obj) {
+    return Array.isArray(obj);
+  },
+
+  formatTechnologies: function(technologies) {
+    return technologies.join(', ');
+  },
+
   formatDate: function (date) {
-    return moment(date).format('MM/YYYY');
+    return moment(date).format('MMM YYYY');
+  },
+
+  formatDuration: function (startDate, endDate) {
+    const start = moment(startDate);
+    const end = moment(endDate || new Date().toISOString());
+    const years = end.diff(start, 'years');
+    const monthsAccounted = years * 12;
+    const totalMonths = end.diff(start, 'month');
+    const months = totalMonths - monthsAccounted;
+
+    let duration = '';
+    if (years > 0) {
+      duration += `${years} year${years > 1 ? 's' : ''}`;
+    }
+    if (months > 0) {
+      if (duration !== '') {
+        duration += ' ';
+      }
+      duration += `${months} month${months > 1 ? 's' : ''}`;
+    }
+
+    return duration;
   }
 });
 

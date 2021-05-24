@@ -4,14 +4,33 @@
 
   {{#each resume.work}}
   <section class="item">
-    {{> section-header name=this.company }}
+    {{> section-header-duration name=this.company }}
 
     {{#if position}}
       <h4>{{position}}</h4>
     {{/if}}
 
+    <h5 class="italic pull-right">
+      <span class="startDate">{{formatDuration startDate endDate}}</span>
+      {{#if startDate}}
+        <span class="startDate">({{formatDate startDate}}</span>
+        {{#if endDate}}
+          <span class="endDate"> - {{formatDate endDate}})</span>
+        {{else}}
+          <span class="endDate"> - Present)</span>
+        {{/if}}
+      {{else if releaseDate}}
+        {{formatDate releaseDate}}
+      {{/if}}
+    </h5>
+
+
     {{#if summary}}
-      <p class="summary">{{summary}}</p>
+      <p class="summary">{{{summary}}}</p>
+    {{/if}}
+
+    {{#if technologies.length}}
+      <p class="summary"><strong>Technologies:</strong> {{ formatTechnologies technologies}}</p>
     {{/if}}
 
     {{#if highlights.length}}
