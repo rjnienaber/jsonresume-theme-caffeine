@@ -6,28 +6,30 @@
   <section class="item">
     {{> section-header-duration name=this.company }}
 
-    {{#if position}}
-      <h4>{{position}}</h4>
-    {{/if}}
-
-    <h5 class="italic pull-right">
-      <span class="startDate">{{formatDuration startDate endDate}}</span>
-      {{#if startDate}}
-        <span class="startDate">({{formatDate startDate}}</span>
-        {{#if endDate}}
-          <span class="endDate"> - {{formatDate endDate}})</span>
-        {{else}}
-          <span class="endDate"> - Present)</span>
-        {{/if}}
-      {{else if releaseDate}}
-        {{formatDate releaseDate}}
+    <div>
+      {{#if position}}
+        <h4 style="float: left;">{{position}}</h4>
       {{/if}}
-    </h5>
 
-
-    {{#if summary}}
-      <p class="summary">{{{summary}}}</p>
-    {{/if}}
+      <h5 class="italic" style="float:right;">
+        <span class="startDate">{{formatDuration startDate endDate}}</span>
+        {{#if startDate}}
+          <span class="startDate">({{formatDate startDate}}</span>
+          {{#if endDate}}
+            <span class="endDate"> - {{formatDate endDate}})</span>
+          {{else}}
+            <span class="endDate"> - Present)</span>
+          {{/if}}
+        {{else if releaseDate}}
+          {{formatDate releaseDate}}
+        {{/if}}
+      </h5>
+    </div>
+    <div style="float: left;">
+      {{#if summary}}
+        <p class="summary">{{{summary}}}</p>
+      {{/if}}
+    </div>
 
     {{#if technologies.length}}
       <p class="summary"><strong>Technologies:</strong> {{ formatTechnologies technologies}}</p>
