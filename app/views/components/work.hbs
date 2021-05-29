@@ -4,9 +4,9 @@
 
   {{#each resume.work}}
   {{#if breakBefore}}
-  <section class="item page-break">
+  <section class="page-break" style="float: left;">
   {{else}}
-  <section class="item">
+  <section style="float: left;">
   {{/if}}
     {{> section-header-duration name=this.company }}
 
