@@ -3,55 +3,55 @@
   {{> title value="Experience"}}
 
   {{#each resume.work}}
-  {{#if breakBefore}}
-  <section class="page-break" style="float: left;">
-  {{else}}
-  <section style="float: left;">
-  {{/if}}
-    {{> section-header-duration name=this.company }}
-
-    <div>
-      {{#if position}}
-        <h4 style="float: left;">{{position}}</h4>
-      {{/if}}
-
-      <h5 class="italic" style="float:right;">
-        <span class="startDate">{{formatDuration startDate endDate}}</span>
-        {{#if startDate}}
-          <span class="startDate">({{formatDate startDate}}</span>
-          {{#if endDate}}
-            <span class="endDate"> - {{formatDate endDate}})</span>
-          {{else}}
-            <span class="endDate"> - Present)</span>
-          {{/if}}
-        {{else if releaseDate}}
-          {{formatDate releaseDate}}
-        {{/if}}
-      </h5>
-    </div>
-    <div style="float: left;">
-      {{#if summary}}
-        <p class="summary">{{{summary}}}</p>
-      {{/if}}
-    </div>
-
-    <div style="float: left;">
-      {{#if technologies.length}}
-        <p style="margin-top: 0px; margin-bottom: 10px"><strong>Technologies:</strong> {{ formatTechnologies technologies}}</p>
-      {{/if}}
-    </div>
-
-    {{#if highlights.length}}
-      <div style="float: left; padding-bottom: 10px;">
-        <p style="margin: 0"><strong>Highlights</strong> </p>
-        <ul>
-          {{#each highlights}}
-            <li>{{{.}}}</li>
-          {{/each}}
-        </ul>
-      </div>
+    {{#if breakBefore}}
+    <section class="page-break" style="float: left;">
+    {{else}}
+    <section style="float: left;">
     {{/if}}
-  </section>
+      {{> section-header-duration name=this.company }}
+
+      <div>
+        {{#if position}}
+          <h4 style="float: left;">{{position}}</h4>
+        {{/if}}
+
+        <h5 class="italic" style="float:right;">
+          <span class="startDate">{{formatDuration startDate endDate}}</span>
+          {{#if startDate}}
+            <span class="startDate">({{formatDate startDate}}</span>
+            {{#if endDate}}
+              <span class="endDate"> - {{formatDate endDate}})</span>
+            {{else}}
+              <span class="endDate"> - Present)</span>
+            {{/if}}
+          {{else if releaseDate}}
+            {{formatDate releaseDate}}
+          {{/if}}
+        </h5>
+      </div>
+      <div style="float: left;">
+        {{#if summary}}
+          <p class="summary">{{{summary}}}</p>
+        {{/if}}
+      </div>
+
+      <div style="float: left;">
+        {{#if technologies.length}}
+          <p style="margin-top: 0px; margin-bottom: 10px"><strong>Technologies:</strong> {{ formatTechnologies technologies}}</p>
+        {{/if}}
+      </div>
+
+      {{#if highlights.length}}
+        <div style="float: left; padding-bottom: 10px;">
+          <p style="margin: 0"><strong>Highlights</strong> </p>
+          <ul>
+            {{#each highlights}}
+              <li>{{{.}}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+    </section>
   {{/each}}
 </div>
 {{/if}}
