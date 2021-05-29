@@ -1,28 +1,39 @@
 {{#if resume.education.length}}
-<div class="education-container" style="float: left;">
-  {{> title value="Education"}} {{#each resume.education}}
-  <section class="item">
-    {{> section-header name=this.institution }}
-    {{#if location}}
-      <h5 class="location">{{location}}</h5>
-    {{/if}}
+  <div class="skills-container">
+    <section class="container">
+      {{> title value="Education"}}
+      {{#each resume.education}}
 
-    <h4>{{#if studyType}}{{studyType}} {{/if}}{{#if area}}{{area}}{{/if}}</h4>
+        <h4 class="bold">
+          {{#if website}}
+            <a href="{{website}}" target="_blank">
+              {{institution}} <i class="fa" aria-hidden="true"></i>
+            </a>
+          {{else}}
+            {{institution}}
+          {{/if}}
+        </h4>
+        <h4>{{#if studyType}}{{studyType}} {{/if}}{{#if area}}{{area}}{{/if}}</h4>
 
-    {{#if gpa}}
-      <h5>{{gpa}}</h5>
-    {{/if}}
-    {{#if specialization}}
-      <h5 class="specialization">{{specialization}}</h5>
-    {{/if}}
-    {{#if courses.length}}
-      <ul class="two-column">
-        {{#each courses}}
-        <li>{{.}}</li>
-        {{/each}}
-      </ul>
-    {{/if}}
-  </section>
-  {{/each}}
-</div>
+        <h5 class="italic">
+          {{#if startDate}}
+            <span class="startDate">{{formatDate startDate}}</span>
+            {{#if endDate}}
+              <span class="endDate"> - {{formatDate endDate}}</span>
+            {{else}}
+              <span class="endDate"> - Present</span>
+            {{/if}}
+          {{else if releaseDate}}
+            {{formatDate releaseDate}}
+          {{/if}}
+        </h5>
+
+        {{#if location}}
+          <h5 class="location">{{location}}</h5>
+        {{/if}}
+      {{/each}}
+    </section>
+  </div>
 {{/if}}
+
+
