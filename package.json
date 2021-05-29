@@ -16,7 +16,9 @@
   "license": "MIT",
   "scripts": {
     "start": "npx gulp && npx resume serve --theme .",
-    "export": "npx gulp && npx resume export resume --format pdf --theme ."
+    "build:watch": "while inotifywait -e close_write -r app; do npx gulp; touch resume.json; done",
+    "export": "npx gulp && npx resume export resume --format pdf --theme .",
+    "export:watch": "yarn export; evince resume.pdf & while inotifywait -e close_write -r .; do yarn export; done"
   },
   "devDependencies": {
     "browser-sync": "^2.18.5",

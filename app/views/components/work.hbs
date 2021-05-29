@@ -35,16 +35,21 @@
       {{/if}}
     </div>
 
-    {{#if technologies.length}}
-      <p class="summary"><strong>Technologies:</strong> {{ formatTechnologies technologies}}</p>
-    {{/if}}
+    <div style="float: left;">
+      {{#if technologies.length}}
+        <p style="margin-top: 0px; margin-bottom: 10px"><strong>Technologies:</strong> {{ formatTechnologies technologies}}</p>
+      {{/if}}
+    </div>
 
     {{#if highlights.length}}
-      <ul>
-        {{#each highlights}}
-        <li>{{{.}}}</li>
-        {{/each}}
-      </ul>
+      <div style="float: left; padding-bottom: 10px;">
+        <p style="margin: 0"><strong>Highlights</strong> </p>
+        <ul>
+          {{#each highlights}}
+            <li>{{{.}}}</li>
+          {{/each}}
+        </ul>
+      </div>
     {{/if}}
   </section>
   {{/each}}
